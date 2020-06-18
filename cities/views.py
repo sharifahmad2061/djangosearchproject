@@ -1,11 +1,13 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import FormView, ListView
 from django.db.models import Q
 from .models import City
+from .forms import SearchForm
 # Create your views here.
 
 
-class HomePageView(TemplateView):
+class HomePageView(FormView):
     template_name = 'cities/home.html'
+    form_class = SearchForm
 
 
 class SearchResultsView(ListView):
